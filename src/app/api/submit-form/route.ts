@@ -1,14 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { google } from "googleapis";
-import path from "path";
-import fs from "fs";
 import formatDate from "@/app/utils/formatDate";
 
-// Load service account credentials
-const CREDENTIALS_PATH = path.join(process.cwd(), "service-account.json");
-const credentials = JSON.parse(fs.readFileSync(CREDENTIALS_PATH, "utf-8"));
+const credentials = {
+  type: "service_account",
+  project_id: process.env.GOOGLE_PROJECT_ID!,
+  private_key: process.env.GOOGLE_PRIVATE_KEY!.replace(/\\n/g, "\n"), // fix for newlines
+  client_email: process.env.GOOGLE_CLIENT_EMAIL!,
+  token_uri: "https://oauth2.googleapis.com/token",
+};
 
-// Replace with your actual sheet ID
 const SHEET_ID = process.env.SHEET_ID
 
 export async function POST(req: NextRequest) {
