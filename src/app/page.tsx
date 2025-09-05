@@ -1,4 +1,3 @@
-import Image from "next/image";
 import CustomGoogleFormPage from "./pages/google-form";
 
 export default function Home() {
