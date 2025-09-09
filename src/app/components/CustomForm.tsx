@@ -31,7 +31,7 @@ export default function CustomForm() {
         name="name"
         value={form.name}
         onChange={handleChange}
-        placeholder="Name"
+        placeholder="Name *"
         className="border p-2 rounded"
       />
       <input
@@ -45,7 +45,7 @@ export default function CustomForm() {
         name="message"
         value={form.message}
         onChange={handleChange}
-        placeholder="Message"
+        placeholder="Message *"
         className="border p-2 rounded"
       />
       <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded">
